@@ -1,0 +1,389 @@
+/* General Styles */
+:root {
+    --primary-color: #6B73FF;
+    --secondary-color: #FF6B6B;
+    --tertiary-color: #ffffff;
+    --quaternary-color: #11998e;
+    --dark-color: #007dfa;
+    --light-color: #f8f9fa;
+    --white: #fafafa;
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd;
+    --gray-600: #6c757d;
+    --gray-700: #495057;
+    --gray-800: #343a40;
+    --gray-900: #212529;
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--gray-100);
+    color: var(--dark-color);
+}
+
+/* Navigation Styles */
+.navbar {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #000DFF 100%);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--white) !important;
+}
+
+.nav-link {
+    color: rgba(255,255,255,0.9) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    transition: var(--transition);
+    border-radius: 8px;
+    margin: 0 0.2rem;
+}
+
+.nav-link:hover {
+    color: var(--white) !important;
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    color: var(--white) !important;
+    background: rgba(255,255,255,0.3);
+    font-weight: 600;
+}
+
+/* Card Styles */
+.card {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: var(--transition);
+    background: var(--white);
+    margin-bottom: 1.5rem;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.card-title {
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
+}
+
+/* Gradient Cards */
+.primary-gradient {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #000DFF 100%);
+    color: var(--white) !important;
+}
+
+.secondary-gradient {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #FF8E53 100%);
+    color: var(--white) !important;
+}
+
+.tertiary-gradient {
+    background: linear-gradient(135deg, #4CAF50 0%, #2196F3 100%);
+    color: var( --gray-800) !important;
+}
+
+.quaternary-gradient {
+    background: linear-gradient(135deg, var(--quaternary-color) 0%, #38ef7d 100%);
+    color: var(--white) !important;
+}
+
+/* Form Controls */
+.form-control, .form-select {
+    border-radius: 10px;
+    border: 2px solid var(--gray-300);
+    padding: 0.75rem 1rem;
+    transition: var(--transition);
+    background-color: var(--white) !important;
+    color: var(--dark-color) !important;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(107,115,255,0.25);
+    background-color: var(--white) !important;
+    color: var(--dark-color) !important;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 10px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #000DFF 100%);
+    border: none;
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+/* Table Styles */
+.table {
+    margin-bottom: 0;
+    background-color: var(--gray-100);
+}
+
+.table th {
+    background-color: var(--gray-200);
+    color: var(--gray-800);
+    font-weight: 600;
+    padding: 1rem;
+    border-bottom: 2px solid var(--gray-300);
+}
+
+.table td {
+    padding: 1rem;
+    color: var(--gray-800);
+    background-color: var(--gray-100);
+    vertical-align: middle;
+}
+
+.table tbody tr {
+    transition: var(--transition);
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.table tbody tr:hover {
+    background-color: var(--gray-200);
+}
+
+/* Currency Converter Specific */
+.converter-card {
+    background: linear-gradient(135deg, var(--white) 0%, var(--gray-100) 100%);
+}
+
+.conversion-details {
+    background-color: var(--gray-100) !important;
+    border: 1px solid var(--gray-300);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    color: var(--gray-800) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.conversion-details h6 {
+    color: var(--gray-800);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.conversion-details p {
+    color: var(--gray-800);
+    margin-bottom: 0.75rem;
+}
+
+.conversion-details small {
+    color: var(--gray-600);
+}
+
+/* Badge Styles */
+.badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* Chart Container */
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Transaction Items */
+.transaction-row {
+    background-color: var(--gray-100);
+    transition: var(--transition);
+}
+
+.transaction-row:hover {
+    background-color: var(--gray-200);
+}
+
+/* Text Colors */
+.text-success {
+    color: #28a745 !important;
+    font-weight: 500;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+    font-weight: 500;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: var(--gray-900);
+        color: var(--gray-900);
+    }
+
+    .card:not([class*="gradient"]) {
+        background: var(--gray-800);
+        color: var(--gray-100);
+    }
+
+    .form-control, .form-select {
+        background-color: var(--gray-700) !important;
+        border-color: var(--gray-600);
+        color: var(--gray-100) !important;
+    }
+
+    .table {
+        background-color: var(--gray-800);
+        color: var(--gray-100);
+    }
+
+    .table th {
+        background-color: var(--gray-800);
+        color: var(--gray-100);
+        border-bottom-color: var(--gray-700);
+    }
+
+    .table td {
+        background-color: var(--gray-800);
+        color: var(--gray-100);
+    }
+
+    .table tbody tr {
+        border-bottom-color: var(--gray-700);
+    }
+
+    .table tbody tr:hover {
+        background-color: var(--gray-700);
+    }
+
+    .conversion-details {
+        background-color: var(--gray-800) !important;
+        border-color: var(--gray-700);
+        color: var(--gray-100) !important;
+    }
+
+    .conversion-details h6,
+    .conversion-details p {
+        color: var(--gray-100);
+    }
+
+    .conversion-details small {
+        color: var(--gray-400);
+    }
+
+    .transaction-row {
+        background-color: var(--gray-800);
+    }
+
+    .transaction-row:hover {
+        background-color: var(--gray-700);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .card {
+        margin-bottom: 1rem;
+    }
+
+    .btn {
+        padding: 0.5rem 1rem;
+    }
+
+    .chart-container {
+        height: 200px;
+    }
+
+    .table-responsive {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Additional Fixes */
+.table-hover tbody tr:hover {
+    background-color: var(--gray-200);
+}
+
+.alert {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.insight-card {
+    background-color: var(--gray-100);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4f58ff;
+}

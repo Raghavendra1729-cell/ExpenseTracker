@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinFlow - Analytics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-wallet me-2"></i>FinFlow
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home me-2"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="budget.html">
+                            <i class="fas fa-chart-pie me-2"></i>Budget Tracker
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="converter.html">
+                            <i class="fas fa-exchange-alt me-2"></i>Currency Converter
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="analytics.html">
+                            <i class="fas fa-chart-line me-2"></i>Analytics
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- Date Range and Export Options -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <label class="form-label">Time Period</label>
+                        <select class="form-select" id="dateRange">
+                            <option value="7">Last 7 Days</option>
+                            <option value="30" selected>Last 30 Days</option>
+                            <option value="90">Last 3 Months</option>
+                            <option value="180">Last 6 Months</option>
+                            <option value="365">Last Year</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 custom-date-range" style="display: none;">
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="form-label">From</label>
+                                <input type="date" class="form-control" id="startDate">
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">To</label>
+                                <input type="date" class="form-control" id="endDate">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Export Options</label>
+                        <div class="btn-group w-100">
+                            <button class="btn btn-outline-primary" id="downloadPDF">
+                                <i class="fas fa-file-pdf me-2"></i>PDF Report
+                            </button>
+                            <button class="btn btn-outline-primary" id="downloadCSV">
+                                <i class="fas fa-file-csv me-2"></i>Export CSV
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card stat-card primary-gradient">
+                    <div class="card-body">
+                        <h5>Total Spending</h5>
+                        <h3 id="totalSpending">$0.00</h3>
+                        <small id="spendingTrend" class="text-white">vs last period</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card secondary-gradient">
+                    <div class="card-body">
+                        <h5>Average Daily</h5>
+                        <h3 id="averageDaily">$0.00</h3>
+                        <small class="text-white">per day</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card tertiary-gradient">
+                    <div class="card-body">
+                        <h5>Savings Rate</h5>
+                        <h3 id="savingsRate">0%</h3>
+                        <small class="text-white">of income</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card quaternary-gradient">
+                    <div class="card-body">
+                        <h5>Budget Status</h5>
+                        <h3 id="budgetStatus">On Track</h3>
+                        <small id="budgetTrend" class="text-white">Under budget</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Charts -->
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h5 class="card-title mb-0">Spending Analysis</h5>
+                            <div class="btn-group">
+                                <button class="btn btn-outline-primary active" data-chart="line">
+                                    <i class="fas fa-chart-line"></i>
+                                </button>
+                                <button class="btn btn-outline-primary" data-chart="bar">
+                                    <i class="fas fa-chart-bar"></i>
+                                </button>
+                                <button class="btn btn-outline-primary" data-chart="area">
+                                    <i class="fas fa-chart-area"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <canvas id="spendingChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Category Distribution</h5>
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Analysis -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Top Expenses</h5>
+                        <div id="topExpenses" class="mt-3">
+                            <!-- Top expenses will be added dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Spending Patterns</h5>
+                        <canvas id="patternChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Insights and Recommendations -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Financial Insights</h5>
+                        <div id="insights" class="mt-3">
+                            <!-- Insights will be added dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Recommendations</h5>
+                        <div id="recommendations" class="mt-3">
+                            <!-- Recommendations will be added dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom JS -->
+    <script src="analytics.js"></script>
+</body>
+</html>
