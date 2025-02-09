@@ -7,6 +7,9 @@ let currentChartType = 'line';
 async function initializeAnalytics() {
     showLoading(true);
     try {
+        // Fetch initial advice
+        await fetchAdvice();
+
         if (!transactions || transactions.length === 0) {
             hideLoading();
             showEmptyState();
@@ -20,6 +23,29 @@ async function initializeAnalytics() {
         showError('Failed to initialize analytics');
     }
     showLoading(false);
+}
+
+// Fetch Advice from API
+async function fetchAdvice() {
+    try {
+        const response = await fetch('https://api.adviceslip.com/advice');
+        const data = await response.json();
+        
+        const adviceText = document.getElementById('adviceText');
+        if (adviceText) {
+            // Add fade-out effect
+            adviceText.style.opacity = '0';
+            
+            setTimeout(() => {
+                adviceText.textContent = data.slip.advice;
+                adviceText.style.opacity = '1';
+            }, 300);
+        }
+    } catch (error) {
+        console.error('Error fetching advice:', error);
+        document.getElementById('adviceText').textContent = 
+            'Unable to load financial tip. Please try again later.';
+    }
 }
 
 // Show/Hide Loading
@@ -549,6 +575,12 @@ function setupEventListeners() {
     document.getElementById('endDate')?.addEventListener('change', updateDateRange);
     document.getElementById('downloadPDF')?.addEventListener('click', downloadPDF);
     document.getElementById('downloadCSV')?.addEventListener('click', downloadCSV);
+
+    // Added event listener for advice refresh
+    const newAdviceBtn = document.getElementById('newAdviceBtn');
+    if (newAdviceBtn) {
+        newAdviceBtn.addEventListener('click', fetchAdvice);
+    }
 }
 
 // Download Functions
