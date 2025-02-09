@@ -1,73 +1,113 @@
-Personal Budget and Expense Tracker with Currency Converter
+# FinFlow - Financial Management System Documentation
 
-Description
+## Project Overview
+FinFlow is a comprehensive financial management web application with multiple sections designed to help users manage their finances effectively.
 
-This project is a web-based personal budget and expense tracker that helps users log their expenses, categorize spending, and convert transactions into their preferred currency. It provides insights into spending habits using interactive charts and ensures data persistence using LocalStorage. Real-time exchange rates are fetched from the Open Exchange Rates API.
+## Table of Contents
+1. [Dashboard](#dashboard)
+2. [Budget Tracker](#budget-tracker)
+3. [Currency Converter](#currency-converter)
+4. [Analytics](#analytics)
+5. [Technical Details](#technical-details)
+6. [APIs Used](#apis-used)
 
-Features
+## 1. Dashboard
+![Dashboard Screenshot]()
 
-Expense Management: Add, edit, and delete expenses dynamically.
+### 1.1 Features
+#### 1.1.1 Quick Overview
+- Total Balance Display
+- Monthly Income Tracker
+- Monthly Expenses Summary
+- Savings Calculator
 
-Categorized Insights: Visual representation of spending breakdown using charts.
+#### 1.1.2 Financial Charts
+- Income vs Expenses Trend
+- Expense Distribution Chart
+- Income Distribution Chart
 
-Currency Conversion: Converts expenses into the user's preferred currency with real-time exchange rates.
+#### 1.1.3 Recent Transactions
+- Date-wise Transaction List
+- Category Labeling
+- Transaction Status Indicators
 
-Data Persistence: Uses LocalStorage to save expenses and user preferences.
+## 2. Budget Tracker
+![Budget Tracker Screenshot]()
 
-Interactive UI: Uses DOM manipulation for dynamic updates.
+### 2.1 Features
+#### 2.1.1 Budget Management
+- Set Monthly Budget
+- Track Spending
+- Remaining Budget Calculator
+- Daily Average Spending
 
-Technologies Used
+#### 2.1.2 Transaction Management
+- Add New Transactions
+- Categorize Expenses
+- Filter Transactions
+- Delete Transactions
 
-HTML, CSS, JavaScript for frontend development.
+#### 2.1.3 Visual Representations
+- Budget Overview Chart
+- Category Breakdown
+- Spending Patterns
 
-Chart.js for graphical representation of spending trends.
+## 3. Currency Converter
+![Currency Converter Screenshot]()
 
-Open Exchange Rates API for real-time currency conversion.
+### 3.1 Features
+#### 3.1.1 Real-time Conversion
+- Live Exchange Rates
+- 150+ Currencies Support
+- Rate History Tracking
 
-LocalStorage API for data persistence.
+#### 3.1.2 Popular Currencies
+- Quick Access to Major Currencies
+- Live Rate Updates
+- Currency Details
 
-How It Works
+#### 3.1.3 Exchange Rate Table
+- Comprehensive Rate List
+- Search Functionality
+- Rate Change Indicators
 
-1.⁠ ⁠Adding an Expense
+#### 3.1.4 API Integration
+- Uses Exchange Rate API
+- Base URL: https://open.er-api.com/v6/latest/
+- Features:
+  - Real-time rates
+  - Multiple currency support
+  - Rate history
 
-Users enter the amount, select a category, and add a description.
+## 4. Analytics
+![Analytics Screenshot]()
 
-Clicking the "Add Expense" button updates the list and saves data in LocalStorage.
+### 4.1 Features
+#### 4.1.1 Financial Analysis
+- Spending Analysis
+- Savings Rate Calculator
+- Budget Status Tracking
 
-2.⁠ ⁠Editing/Deleting Expenses
+#### 4.1.2 Data Visualization
+- Spending Trends
+- Category Distribution
+- Pattern Analysis
 
-Each expense entry includes an edit and delete button.
+#### 4.1.3 Reporting
+- PDF Export
+- CSV Download
+- Custom Date Range Analysis
 
-Editing allows modifying the amount, category, or description.
+#### 4.1.4 Financial Insights
+##### Spending Patterns
+- Category-wise Analysis
+- Trend Identification
+- Comparative Analysis
 
-Deleting removes the expense from the UI and LocalStorage.
+##### Recommendations
+- Personalized Suggestions
+- Budget Optimization Tips
+- Savings Recommendations
 
-3.⁠ ⁠Currency Conversion
-
-Users select their preferred currency from a dropdown menu.
-
-The app fetches real-time exchange rates and converts expenses accordingly.
-
-Converted values are displayed alongside the original amount.
-
-4.⁠ ⁠Spending Insights
-
-Expenses are categorized and displayed in a pie chart.
-
-The app calculates and visualizes the proportion of spending in each category.
-
-Future Enhancements
-
-User authentication for multiple profiles.
-
-Monthly budget limits and notifications.
-
-Export data as CSV or PDF.
-
-Author
-
-Developed by [Your Name]
-
-License
-
-This project is licensed under the MIT License.
+## 5. Technical Details
+### 5.1 File Structure
